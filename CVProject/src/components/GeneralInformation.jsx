@@ -1,11 +1,20 @@
-function GeneralInformation(){
+import { useState } from "react";
+
+function GeneralInformation({ onGeneralSubmit }){
+
+
+    const [name, setName] = useState('');
+
+    const handleInput = (event) =>{
+        setName(event.target.value)
+    }
 
     //add name, email, phone number, town, zipcode, street, housenumber, date of birth
     return (
         <form>
             <h1>General Information</h1>
             <label htmlFor="name">Name:</label>
-            <input id="name"></input>
+            <input onChange={handleInput} id="name"></input>
             <label htmlFor="email">Email:</label>
             <input id="email"></input>
             <label htmlFor="phoneNumber">Phone Number:</label>
@@ -20,6 +29,10 @@ function GeneralInformation(){
             <input id="houseNumber"></input>
             <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input id="dateOfBirth"></input>
+            <button onClick={(event) => {
+                event.preventDefault();
+                onGeneralSubmit(name);
+            }}>Submit</button>
         </form>
     )
 }

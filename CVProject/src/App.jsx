@@ -1,21 +1,27 @@
 import { useState } from 'react'
-import './App.css'
 import GeneralInformation from './components/GeneralInformation'
 import EducationalExperience from './components/EducationalExperience'
 import PracticalExperience from './components/PracticalExperience'
-import CV from './components/CV'
+import CV from './components/CV';
+import './App.css'
 
 function App() {
+
+  const [generalInfo, setGeneralInfo] = useState('')
+
+  const handleGeneralInformationSubmit = (input) =>{
+    setGeneralInfo(input)
+  }
 
   return (
     <div className='appContainer'>
       <div className='leftHalf'>
-        <GeneralInformation />
+        <GeneralInformation onGeneralSubmit = {handleGeneralInformationSubmit}/>
         <EducationalExperience />
         <PracticalExperience />
       </div>
       <div className='rightHalf'>
-        <CV />
+        <CV generalInfo={generalInfo}/>
       </div>
 
     </div>

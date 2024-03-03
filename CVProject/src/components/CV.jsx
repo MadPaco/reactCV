@@ -1,10 +1,13 @@
-function CV(){
+function CV({ generalInfo }){
+
   return (
     <div>
       <h1>CV</h1>
       <div>
         <h2>Personal Information</h2>
-        {/* Add your personal information here */}
+        <div id='GeneralInformation'>
+            {generalInfo}
+        </div>
       </div>
       <div>
         <h2>Education</h2>
