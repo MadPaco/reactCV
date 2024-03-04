@@ -1,18 +1,37 @@
-function PracticalExperience(){
+import { useState } from "react";
+
+function PracticalExperience( { onPracticalSubmit }){
+
+    const [data, setData] = useState({
+        jobTitle: '',
+        company: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+    });
+
+    const handleInput = (event) =>{
+        const { id, value} = event.target
+        setData(previousData => ({...previousData, [id]: value }))
+    }
+
     return(
         <form>
             <h1>Practical Experience</h1>
             <label htmlFor="jobTitle">Job Title:</label>
-            <input id="jobTitle" placeholder="Job Title"></input>
+            <input onChange={handleInput} id="jobTitle" placeholder="Job Title"></input>
             <label htmlFor="company">Company:</label>
-            <input id="company" placeholder="Company"></input>
+            <input onChange={handleInput} id="company" placeholder="Company"></input>
             <label htmlFor="startDate">Start Date:</label>
-            <input id="startDate" placeholder="Start Date"></input>
+            <input onChange={handleInput} id="startDate" placeholder="Start Date"></input>
             <label htmlFor="endDate">End Date:</label>
-            <input id="endDate" placeholder="End Date"></input>
-            <label htmlFor="jobDescription">Job Description:</label>
-            <input id="jobDescription" placeholder="Job Description"></input>
-            <button>Add</button>
+            <input onChange={handleInput} id="endDate" placeholder="End Date"></input>
+            <label htmlFor="description">Job Description:</label>
+            <input onChange={handleInput} id="description" placeholder="Job Description"></input>
+            <button onClick={(event) =>{
+                event.preventDefault();
+                onPracticalSubmit(data);
+            }}>Add</button>
         </form>
     );
 }

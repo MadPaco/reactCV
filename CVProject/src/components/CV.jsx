@@ -1,6 +1,5 @@
 import '../styles/CV.css';
 import DefaultProfilePicture from '../assets/defaultProfilePicture.jpg';
-import EducationalExperience from './EducationalExperience';
 function CV({ generalInfo, educationalExperience, practicalExperience}){
 
   return (
@@ -48,7 +47,18 @@ function CV({ generalInfo, educationalExperience, practicalExperience}){
             <p>No educational experience added yet.</p>
           )}
           <h2>Practical Experience</h2>
-          <p>Practical Experience</p>
+          {practicalExperience && practicalExperience.length > 0 ? (
+            practicalExperience.map((practice, index) => (
+              <div key={index}>
+                <h3>{practice.jobTitle}</h3>
+                <p>{practice.company}</p>
+                <p>{practice.startDate} - {practice.endDate}</p>
+                <p>{practice.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>No practical experience added yet.</p>
+          )}
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ function App() {
         <PracticalExperience onPracticalSubmit = {handlePracticalInformationSubmit}/>
       </div>
       <div className='rightHalf'>
-        <CV generalInfo={generalInfo} educationalExperience={educationInfo}/>
+        <CV generalInfo={generalInfo} educationalExperience={educationInfo} practicalExperience={practicalInfo}/>
       </div>
 
     </div>
