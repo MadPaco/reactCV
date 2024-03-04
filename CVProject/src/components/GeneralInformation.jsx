@@ -5,13 +5,13 @@ function GeneralInformation({ onGeneralSubmit }){
 
     const [data, setData] = useState({
         name: '',
+        position: '',
         email: '',
         phoneNumber: '',
         zipCode: '',
         town: '',
         street: '',
         houseNumber: '',
-        dateOfBirth: '',
     });
 
     const handleInput = (event) =>{
@@ -25,6 +25,8 @@ function GeneralInformation({ onGeneralSubmit }){
             <h1>General Information</h1>
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} id="name"></input>
+            <label htmlFor="position">Position:</label>
+            <input onChange={handleInput} id="position"></input>
             <label htmlFor="email">Email:</label>
             <input onChange={handleInput} id="email"></input>
             <label htmlFor="phoneNumber">Phone Number:</label>
@@ -37,8 +39,6 @@ function GeneralInformation({ onGeneralSubmit }){
             <input onChange={handleInput} id="street"></input>
             <label htmlFor="houseNumber">House Number:</label>
             <input onChange={handleInput} id="houseNumber"></input>
-            <label htmlFor="dateOfBirth">Date of Birth:</label>
-            <input onChange={handleInput} id="dateOfBirth"></input>
             <button onClick={(event) => {
                 event.preventDefault();
                 onGeneralSubmit(data);

@@ -1,30 +1,75 @@
-h1 {
-    color: #333;
-    text-align: center;
+h1{
+    /* temporary, remove later*/
+    font-size: 20px;
 }
 
-h2 {
-    color: #666;
+h2, h3{
+    margin: 0px;
+}
+
+.cvContainer{
+    display: flex;
+    align-items: space-between;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    height: 100vh;
+    /* using this to avoid that the corners of the cvLeft class overwrite 
+    the rounded corners of the CV*/
+    overflow: hidden;
+}
+
+.cvLeft{
+    display: flex;
+    background-color: #2b2f6d;
+    color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-left: 50px
+}
+
+.cvRight{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.profilePicture img{
+    width: clamp(100px, 120px, 200px);
+    height: clamp(100px, 120px, 200px);
+    border-radius: 50%;
+    margin: 20px 20px 0px 0px;
+}
+
+.contactHeader {
+    border-bottom: 1px solid white;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.contactBox{
     margin-top: 20px;
 }
 
-#GeneralInformation {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 5px;
+.contactBox p{
+    margin: 0px 10px 0px 0px;
 }
 
-#GeneralInformation div {
-    margin-bottom: 10px;
+#nameHeader{
+    margin: 0px;
+    font-size: 2em;
 }
 
-#GeneralInformation h3 {
-    font-size: 1.2em;
-    color: #333;
+.contactLabel{
+    font-size: 20px;
+    margin: 0px;
 }
 
-#GeneralInformation p {
-    font-size: 1em;
-    color: #666;
+.contactValue{
+    font-size: 12px;
+    margin: 0px;
 }

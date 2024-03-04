@@ -1,42 +1,40 @@
 import '../styles/CV.css';
-
+import DefaultProfilePicture from '../assets/defaultProfilePicture.jpg';
 function CV({ generalInfo }){
 
   return (
     <div>
-      <div>
-        <h2>Personal Information</h2>
-        <div id='GeneralInformation'>
-          <div>
-            <h3>Name</h3>
-            <p>{generalInfo.name}</p>
+      <div className='cvContainer'>
+        <div className='cvLeft'>
+          <div className='profilePicture'>
+            <img src={DefaultProfilePicture} alt='ProfilePicture'/>
           </div>
-          <div>
-            <h3>Email</h3>
-            <p>{generalInfo.email}</p>
+          <div className="contactHeader">
+            <h2>Contact</h2>
           </div>
-          <div>
-            <h3>Phone Number</h3>
-            <p>{generalInfo.phoneNumber}</p>
+          <div className="contactBox">
+            <p className="contactLabel">Phone</p>
+            <p className="contactValue">{generalInfo.phoneNumber}</p>
           </div>
-          <div>
-            <h3>Address</h3>
-            <p>{generalInfo.street} {generalInfo.houseNumber}, {generalInfo.zipCode} {generalInfo.town}</p>
+          <div className="contactBox">
+            <p className="contactLabel">Email</p>
+            <p className="contactValue">{generalInfo.email}</p>
           </div>
-          <div>
-            <h3>Date of Birth</h3>
-            <p>{generalInfo.dateOfBirth}</p>
+          <div className="contactBox">
+            <p className="contactLabel">Address</p>
+            <p className="contactValue">{generalInfo.zipCode}</p>
+            <p className="contactValue">{generalInfo.town}</p>
+            <p className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</p>
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Education</h2>
-      </div>
-      <div>
-        <h2>Experience</h2>
-      </div>
-      <div>
-        <h2>Skills</h2>
+        <div className='cvRight'>
+          <h1 id="nameHeader">{generalInfo.name}</h1>
+          <h3 id="positionHeader">{generalInfo.position}</h3>
+          <h2>Educational Experience</h2>
+          <p>Education</p>
+          <h2>Practical Experience</h2>
+          <p>Practical Experience</p>
+        </div>
       </div>
     </div>
   );
