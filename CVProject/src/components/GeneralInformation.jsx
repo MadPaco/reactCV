@@ -3,10 +3,20 @@ import { useState } from "react";
 function GeneralInformation({ onGeneralSubmit }){
 
 
-    const [name, setName] = useState('');
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        zipCode: '',
+        town: '',
+        street: '',
+        houseNumber: '',
+        dateOfBirth: '',
+    });
 
     const handleInput = (event) =>{
-        setName(event.target.value)
+        const { id, value} = event.target
+        setData(previousData => ({...previousData, [id]: value }))
     }
 
     //add name, email, phone number, town, zipcode, street, housenumber, date of birth
@@ -16,22 +26,22 @@ function GeneralInformation({ onGeneralSubmit }){
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} id="name"></input>
             <label htmlFor="email">Email:</label>
-            <input id="email"></input>
+            <input onChange={handleInput} id="email"></input>
             <label htmlFor="phoneNumber">Phone Number:</label>
-            <input id="phoneNumber"></input>
+            <input onChange={handleInput} id="phoneNumber"></input>
             <label htmlFor="zipCode">Zip Code:</label>
-            <input id="zipCode"></input>
+            <input onChange={handleInput} id="zipCode"></input>
             <label htmlFor="town">Town:</label>
-            <input id="town"></input>
+            <input onChange={handleInput} id="town"></input>
             <label htmlFor="street">Street:</label>
-            <input id="street"></input>
+            <input onChange={handleInput} id="street"></input>
             <label htmlFor="houseNumber">House Number:</label>
-            <input id="houseNumber"></input>
+            <input onChange={handleInput} id="houseNumber"></input>
             <label htmlFor="dateOfBirth">Date of Birth:</label>
-            <input id="dateOfBirth"></input>
+            <input onChange={handleInput} id="dateOfBirth"></input>
             <button onClick={(event) => {
                 event.preventDefault();
-                onGeneralSubmit(name);
+                onGeneralSubmit(data);
             }}>Submit</button>
         </form>
     )
