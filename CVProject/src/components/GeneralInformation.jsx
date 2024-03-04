@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/InputForm.css';
 
 function GeneralInformation({ onGeneralSubmit }){
 

@@ -17,6 +17,7 @@ h2, h3{
     border-radius: 10px;
     box-shadow: 0 0 10px #000;
     height: 100vh;
+    width: 60vw;
     /* using this to avoid that the corners of the cvLeft class overwrite 
     the rounded corners of the CV*/
     overflow: hidden;
@@ -28,7 +29,6 @@ h2, h3{
     color: white;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 20px;
     padding-left: 50px
 }
 

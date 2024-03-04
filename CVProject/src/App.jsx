@@ -3,7 +3,7 @@ import GeneralInformation from './components/GeneralInformation'
 import EducationalExperience from './components/EducationalExperience'
 import PracticalExperience from './components/PracticalExperience'
 import CV from './components/CV';
-import './App.css'
+import './styles/App.css'
 
 function App() {
 

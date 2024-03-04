@@ -26,6 +26,9 @@ function CV({ generalInfo }){
             <p className="contactValue">{generalInfo.town}</p>
             <p className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</p>
           </div>
+          <div>
+            <h2>Education</h2>
+          </div>
         </div>
         <div className='cvRight'>
           <h1 id="nameHeader">{generalInfo.name}</h1>
