@@ -4,7 +4,6 @@ function CV({ generalInfo }){
 
   return (
     <div>
-      <h1>CV</h1>\
       <div>
         <h2>Personal Information</h2>
         <div id='GeneralInformation'>
