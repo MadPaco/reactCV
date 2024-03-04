@@ -6,6 +6,7 @@ function GeneralInformation({ onGeneralSubmit }){
     const [data, setData] = useState({
         name: '',
         position: '',
+        about: '',
         email: '',
         phoneNumber: '',
         zipCode: '',
@@ -24,21 +25,23 @@ function GeneralInformation({ onGeneralSubmit }){
         <form>
             <h1>General Information</h1>
             <label htmlFor="name">Name:</label>
-            <input onChange={handleInput} id="name"></input>
+            <input onChange={handleInput} value={data.name} id="name"></input>
             <label htmlFor="position">Position:</label>
-            <input onChange={handleInput} id="position"></input>
+            <input onChange={handleInput} value={data.position} id="position"></input>
+            <label htmlFor="about">About me:</label>
+            <textarea onChange={handleInput} value={data.about}id="about"></textarea>
             <label htmlFor="email">Email:</label>
-            <input onChange={handleInput} id="email"></input>
+            <input onChange={handleInput} value={data.email} id="email"></input>
             <label htmlFor="phoneNumber">Phone Number:</label>
-            <input onChange={handleInput} id="phoneNumber"></input>
+            <input onChange={handleInput} value={data.phoneNumber} id="phoneNumber"></input>
             <label htmlFor="zipCode">Zip Code:</label>
-            <input onChange={handleInput} id="zipCode"></input>
+            <input onChange={handleInput} value={data.zipCode} id="zipCode"></input>
             <label htmlFor="town">Town:</label>
-            <input onChange={handleInput} id="town"></input>
+            <input onChange={handleInput} value={data.town} id="town"></input>
             <label htmlFor="street">Street:</label>
-            <input onChange={handleInput} id="street"></input>
+            <input onChange={handleInput} value={data.street} id="street"></input>
             <label htmlFor="houseNumber">House Number:</label>
-            <input onChange={handleInput} id="houseNumber"></input>
+            <input onChange={handleInput} value={data.houseNumber} id="houseNumber"></input>
             <button onClick={(event) => {
                 event.preventDefault();
                 onGeneralSubmit(data);

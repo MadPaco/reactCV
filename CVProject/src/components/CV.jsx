@@ -29,7 +29,7 @@ function CV({ generalInfo }){
         </div>
         <div className='cvRight'>
           <h1 id="nameHeader">{generalInfo.name}</h1>
-          <h3 id="positionHeader">{generalInfo.position}</h3>
+          <p id="positionHeader">{generalInfo.position}</p>
           <h2>Educational Experience</h2>
           <p>Education</p>
           <h2>Practical Experience</h2>
