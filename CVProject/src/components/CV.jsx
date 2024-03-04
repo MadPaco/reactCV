@@ -1,6 +1,7 @@
 import '../styles/CV.css';
 import DefaultProfilePicture from '../assets/defaultProfilePicture.jpg';
-function CV({ generalInfo }){
+import EducationalExperience from './EducationalExperience';
+function CV({ generalInfo, educationalExperience, practicalExperience}){
 
   return (
     <div>
@@ -34,7 +35,18 @@ function CV({ generalInfo }){
           <h1 id="nameHeader">{generalInfo.name}</h1>
           <p id="positionHeader">{generalInfo.position}</p>
           <h2>Educational Experience</h2>
-          <p>Education</p>
+          {educationalExperience && educationalExperience.length > 0 ? (
+            educationalExperience.map((education, index) => (
+              <div key={index}>
+                <h3>{education.degree}</h3>
+                <p>{education.school}</p>
+                <p>{education.startDate} - {education.endDate}</p>
+                <p>{education.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>No educational experience added yet.</p>
+          )}
           <h2>Practical Experience</h2>
           <p>Practical Experience</p>
         </div>

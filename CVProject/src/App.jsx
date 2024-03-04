@@ -7,21 +7,31 @@ import './styles/App.css'
 
 function App() {
 
-  const [generalInfo, setGeneralInfo] = useState('')
+  const [generalInfo, setGeneralInfo] = useState('');
+  const [educationInfo, setEducationInfo] = useState([]);
+  const [practicalInfo, setPracticalInfo] = useState([]);
 
   const handleGeneralInformationSubmit = (input) =>{
     setGeneralInfo(input)
+  }
+
+  const handleEducationInformationSubmit = (education) =>{
+    setEducationInfo([...educationInfo, education])
+  }
+
+  const handlePracticalInformationSubmit = (practical) =>{
+    setPracticalInfo([...practicalInfo, practical])
   }
 
   return (
     <div className='appContainer'>
       <div className='leftHalf'>
         <GeneralInformation onGeneralSubmit = {handleGeneralInformationSubmit}/>
-        <EducationalExperience />
-        <PracticalExperience />
+        <EducationalExperience onEducationSubmit = {handleEducationInformationSubmit} />
+        <PracticalExperience onPracticalSubmit = {handlePracticalInformationSubmit}/>
       </div>
       <div className='rightHalf'>
-        <CV generalInfo={generalInfo}/>
+        <CV generalInfo={generalInfo} educationalExperience={educationInfo}/>
       </div>
 
     </div>
