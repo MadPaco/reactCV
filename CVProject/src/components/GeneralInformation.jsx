@@ -12,6 +12,15 @@ function GeneralInformation({ onGeneralSubmit }){
         setData(previousData => ({...previousData, [id]: value }))
     }
 
+    const handleFileUpload = (event) =>{
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setData(previousData => ({...previousData, profilePicture: reader.result}))
+        }
+    }
+
     //add name, email, phone number, town, zipcode, street, housenumber, date of birth
     return (
         <form>
@@ -19,7 +28,7 @@ function GeneralInformation({ onGeneralSubmit }){
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} value={data.name} id="name"></input>
             <label htmlFor="profilePicture">Picture</label>
-            <input id="profilePicture" type="file"></input>
+            <input onChange={handleFileUpload} id="profilePicture" type="file"></input>
             <label htmlFor="position">Position:</label>
             <input onChange={handleInput} value={data.position} id="position"></input>
             <label htmlFor="about">About me:</label>
