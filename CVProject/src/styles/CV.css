@@ -80,3 +80,11 @@ h2, h3{
     font-size: 12px;
     margin: 0px;
 }
+
+.deleteButton {
+    display: none;
+  }
+  
+  .education:hover .deleteButton {
+    display: block;
+  }

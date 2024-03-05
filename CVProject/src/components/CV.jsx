@@ -1,13 +1,21 @@
+// Imports
 import '../styles/CV.css';
-import DefaultProfilePicture from '../assets/defaultProfilePicture.jpg';
-function CV({ generalInfo, educationalExperience, practicalExperience}){
+
+// Component
+function CV({ 
+  generalInfo, 
+  educationalExperience, 
+  practicalExperience, 
+  onDeleteEducation, 
+  onDeletePractice
+  }){
 
   return (
     <div>
       <div className='cvContainer'>
         <div className='cvLeft'>
           <div className='profilePicture'>
-            <img src={DefaultProfilePicture} alt='ProfilePicture'/>
+            <img src={generalInfo.profilePicture} alt='ProfilePicture'/>
           </div>
           <div className="contactHeader">
             <h2>Contact</h2>
@@ -28,24 +36,26 @@ function CV({ generalInfo, educationalExperience, practicalExperience}){
           </div>
           <div>
             <h2>Education</h2>
-          </div>
-        </div>
-        <div className='cvRight'>
-          <h1 id="nameHeader">{generalInfo.name}</h1>
-          <p id="positionHeader">{generalInfo.position}</p>
-          <h2>Educational Experience</h2>
-          {educationalExperience && educationalExperience.length > 0 ? (
+            {educationalExperience && educationalExperience.length > 0 ? (
             educationalExperience.map((education, index) => (
-              <div key={index}>
+              <div className="education" key={index}>
+                
                 <h3>{education.degree}</h3>
                 <p>{education.school}</p>
                 <p>{education.startDate} - {education.endDate}</p>
                 <p>{education.description}</p>
+                <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
               </div>
             ))
           ) : (
             <p>No educational experience added yet.</p>
           )}
+          </div>
+        </div>
+        <div className='cvRight'>
+          <h1 id="nameHeader">{generalInfo.name}</h1>
+          <p id='aboutSection'>{generalInfo.about}</p>
+          <p id="positionHeader">{generalInfo.position}</p>
           <h2>Practical Experience</h2>
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
@@ -54,6 +64,7 @@ function CV({ generalInfo, educationalExperience, practicalExperience}){
                 <p>{practice.company}</p>
                 <p>{practice.startDate} - {practice.endDate}</p>
                 <p>{practice.description}</p>
+                <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
               </div>
             ))
           ) : (

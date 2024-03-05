@@ -1,20 +1,11 @@
 import { useState } from "react";
 import '../styles/InputForm.css';
+import initialGeneralInfo from './initialGeneralInfo';
 
 function GeneralInformation({ onGeneralSubmit }){
 
 
-    const [data, setData] = useState({
-        name: '',
-        position: '',
-        about: '',
-        email: '',
-        phoneNumber: '',
-        zipCode: '',
-        town: '',
-        street: '',
-        houseNumber: '',
-    });
+    const [data, setData] = useState(initialGeneralInfo);
 
     const handleInput = (event) =>{
         const { id, value} = event.target
@@ -27,6 +18,8 @@ function GeneralInformation({ onGeneralSubmit }){
             <h1>General Information</h1>
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} value={data.name} id="name"></input>
+            <label htmlFor="profilePicture">Picture</label>
+            <input id="profilePicture" type="file"></input>
             <label htmlFor="position">Position:</label>
             <input onChange={handleInput} value={data.position} id="position"></input>
             <label htmlFor="about">About me:</label>
