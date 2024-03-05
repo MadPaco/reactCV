@@ -90,6 +90,7 @@ h2, h3{
 .education:hover .deleteButton,
 .education:hover .editButton,
 .practice:hover .deleteButton,
-.practice:hover .editButton {
+.practice:hover .editButton,
+.generalInfo:hover .editButton{
 display: inline;
 }

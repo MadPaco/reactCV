@@ -48,6 +48,7 @@ function GeneralInformation({ onGeneralSubmit }){
             <button onClick={(event) => {
                 event.preventDefault();
                 onGeneralSubmit(data);
+                setData(initialGeneralInfo);
             }}>Submit</button>
         </form>
     )

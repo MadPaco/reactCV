@@ -14,18 +14,19 @@ function EducationalExperience({ onEducationSubmit }){
         <form>
             <h1>Educational Experience</h1>
             <label htmlFor="degree">Degree:</label>
-            <input onChange={handleInput} id="degree" placeholder="Degree"></input>
+            <input onChange={handleInput} value={data.degree} id="degree" placeholder="Degree"></input>
             <label htmlFor="school">School:</label>
-            <input onChange={handleInput} id="school" placeholder="School"></input>
+            <input onChange={handleInput} value={data.school} id="school" placeholder="School"></input>
             <label htmlFor="startDate">Start Date:</label>
-            <input onChange={handleInput} id="startDate" placeholder="Start Date"></input>
+            <input onChange={handleInput} value={data.startDate} id="startDate" placeholder="Start Date"></input>
             <label htmlFor="endDate">End Date:</label>
-            <input onChange={handleInput} id="endDate" placeholder="End Date"></input>
+            <input onChange={handleInput} value={data.endDate} id="endDate" placeholder="End Date"></input>
             <label htmlFor="educationDescription">Education Description:</label>
-            <input onChange={handleInput} id="educationDescription" placeholder="Education Description"></input>
+            <input onChange={handleInput} value={data.description} id="educationDescription" placeholder="Education Description"></input>
             <button onClick={(event) => {
                 event.preventDefault();
                 onEducationSubmit(data);
+                setData(initialEducationalInfo);
             }}>Add</button>
         </form>
     )

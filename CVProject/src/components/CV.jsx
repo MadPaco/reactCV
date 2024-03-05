@@ -14,25 +14,28 @@ function CV({
     <div>
       <div className='cvContainer'>
         <div className='cvLeft'>
-          <div className='profilePicture'>
-            <img src={generalInfo.profilePicture} alt='ProfilePicture'/>
-          </div>
-          <div className="contactHeader">
-            <h2>Contact</h2>
-          </div>
-          <div className="contactBox">
-            <p className="contactLabel">Phone</p>
-            <p className="contactValue">{generalInfo.phoneNumber}</p>
-          </div>
-          <div className="contactBox">
-            <p className="contactLabel">Email</p>
-            <p className="contactValue">{generalInfo.email}</p>
-          </div>
-          <div className="contactBox">
-            <p className="contactLabel">Address</p>
-            <p className="contactValue">{generalInfo.zipCode}</p>
-            <p className="contactValue">{generalInfo.town}</p>
-            <p className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</p>
+          <div className='generalInfo'>
+            <div className='profilePicture'>
+              <img src={generalInfo.profilePicture} alt='ProfilePicture'/>
+            </div>
+            <div className="contactHeader">
+              <h2>Contact</h2>
+            </div>
+            <div className="contactBox">
+              <p className="contactLabel">Phone</p>
+              <p className="contactValue">{generalInfo.phoneNumber}</p>
+            </div>
+            <div className="contactBox">
+              <p className="contactLabel">Email</p>
+              <p className="contactValue">{generalInfo.email}</p>
+            </div>
+            <div className="contactBox">
+              <p className="contactLabel">Address</p>
+              <p className="contactValue">{generalInfo.zipCode}</p>
+              <p className="contactValue">{generalInfo.town}</p>
+              <p className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</p>
+              <button className="editButton">Edit</button>
+            </div>
           </div>
           <div>
             <h2>Education</h2>
@@ -54,9 +57,16 @@ function CV({
           </div>
         </div>
         <div className='cvRight'>
-          <h1 id="nameHeader">{generalInfo.name}</h1>
-          <p id='aboutSection'>{generalInfo.about}</p>
-          <p id="positionHeader">{generalInfo.position}</p>
+          <div className='generalInfo'>
+            <div className='generalInfo'>
+              <h1 id="nameHeader">{generalInfo.name}</h1>
+              <button className="editButton">Edit</button>
+            </div>
+            <p id='aboutSection'>{generalInfo.about}</p>
+            <p id="positionHeader">{generalInfo.position}</p>
+
+          </div>
+
           <h2>Practical Experience</h2>
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
