@@ -81,10 +81,15 @@ h2, h3{
     margin: 0px;
 }
 
-.deleteButton {
+.deleteButton, 
+.editButton {
     display: none;
+    margin: 5px;
   }
   
-  .education:hover .deleteButton {
-    display: block;
-  }
+.education:hover .deleteButton,
+.education:hover .editButton,
+.practice:hover .deleteButton,
+.practice:hover .editButton {
+display: inline;
+}

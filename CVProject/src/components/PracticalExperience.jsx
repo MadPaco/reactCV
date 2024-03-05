@@ -1,14 +1,9 @@
 import { useState } from "react";
+import initialPracticalInfo from "./initialPracticalInfo";
 
 function PracticalExperience( { onPracticalSubmit }){
 
-    const [data, setData] = useState({
-        jobTitle: '',
-        company: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-    });
+    const [data, setData] = useState(initialPracticalInfo);
 
     const handleInput = (event) =>{
         const { id, value} = event.target

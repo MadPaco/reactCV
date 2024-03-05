@@ -7,7 +7,7 @@ function CV({
   educationalExperience, 
   practicalExperience, 
   onDeleteEducation, 
-  onDeletePractice
+  onDeletePractice,
   }){
 
   return (
@@ -45,6 +45,7 @@ function CV({
                 <p>{education.startDate} - {education.endDate}</p>
                 <p>{education.description}</p>
                 <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
+                <button className="editButton">Edit</button>
               </div>
             ))
           ) : (
@@ -59,12 +60,13 @@ function CV({
           <h2>Practical Experience</h2>
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
-              <div key={index}>
+              <div className="practice" key={index}>
                 <h3>{practice.jobTitle}</h3>
                 <p>{practice.company}</p>
                 <p>{practice.startDate} - {practice.endDate}</p>
                 <p>{practice.description}</p>
                 <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
+                <button className="editButton">Edit</button>
               </div>
             ))
           ) : (

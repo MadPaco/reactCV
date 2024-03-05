@@ -1,14 +1,9 @@
 import { useState } from "react";
+import initialEducationalInfo from "./initialEducationalInfo";
 
 function EducationalExperience({ onEducationSubmit }){
     
-    const [data, setData] = useState({
-        degree: '',
-        school: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-    });
+    const [data, setData] = useState(initialEducationalInfo);
 
     const handleInput = (event) =>{
         const { id, value} = event.target
