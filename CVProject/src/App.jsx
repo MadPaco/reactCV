@@ -5,6 +5,12 @@ import PracticalExperience from './components/PracticalExperience'
 import CV from './components/CV';
 import './styles/App.css'
 import initialGeneralInfo from './components/initialGeneralInfo';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Typography from '@mui/material/Typography';
+
 
 function App() {
 
@@ -60,36 +66,70 @@ function App() {
   return (
     <div className='appContainer'>
       <div className='leftHalf'>
-        <GeneralInformation 
-        onGeneralSubmit = {handleGeneralInformationSubmit}
-        />
-        <EducationalExperience 
-        onEducationSubmit = {handleEducationInformationSubmit} 
-        onEditEducation={onEditEducation}
-        handleEditEducation={handleEditEducation}
-        editItem={editItem}
-        />
-        <PracticalExperience 
-        onPracticalSubmit = {handlePracticalInformationSubmit}
-        onEditPractice={onEditPractice}
-        handleEditPractice={handleEditPractice}
-        editItem={editItem}
-        />
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>General Information</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <GeneralInformation 
+              onGeneralSubmit={handleGeneralInformationSubmit}
+            />
+          </AccordionDetails>
+        </Accordion>
+  
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Educational Experience</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <EducationalExperience 
+              onEducationSubmit={handleEducationInformationSubmit} 
+              onEditEducation={onEditEducation}
+              handleEditEducation={handleEditEducation}
+              editItem={editItem}
+            />
+          </AccordionDetails>
+        </Accordion>
+  
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography>Practical Experience</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <PracticalExperience 
+              onPracticalSubmit={handlePracticalInformationSubmit}
+              onEditPractice={onEditPractice}
+              handleEditPractice={handleEditPractice}
+              editItem={editItem}
+            />
+          </AccordionDetails>
+        </Accordion>
       </div>
       <div className='rightHalf'>
         <CV 
-        generalInfo={generalInfo} 
-        educationalExperience={educationInfo} 
-        practicalExperience={practicalInfo}
-        onDeleteEducation={deleteEducation}
-        onDeletePractice={deletePracice}
-        handleEditEducation={handleEditEducation}
-        onEditEducation={onEditEducation}
-        handleEditPractice={handleEditPractice}
-        onEditPractice={onEditPractice}
+          generalInfo={generalInfo} 
+          educationalExperience={educationInfo} 
+          practicalExperience={practicalInfo}
+          onDeleteEducation={deleteEducation}
+          onDeletePractice={deletePracice}
+          handleEditEducation={handleEditEducation}
+          onEditEducation={onEditEducation}
+          handleEditPractice={handleEditPractice}
+          onEditPractice={onEditPractice}
         />
       </div>
-
     </div>
   )
 }
