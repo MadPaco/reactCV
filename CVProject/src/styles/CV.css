@@ -1,10 +1,9 @@
-h1{
-    /* temporary, remove later*/
-    font-size: 20px;
-}
-
 h2, h3{
     margin: 0px;
+}
+
+.experienceHeader{
+    border-bottom: 1px solid #000;
 }
 
 .cvContainer{
@@ -29,13 +28,16 @@ h2, h3{
     color: white;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 50px
+    padding-left: 50px;
+    width: 40%;
 }
 
 .cvRight{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    padding: 30px;
+    width: 100%;
 }
 
 .profilePicture img{
@@ -49,6 +51,7 @@ h2, h3{
     border-bottom: 1px solid white;
     width: 100%;
     margin-bottom: 0px;
+    margin-top: 20px;
 }
 
 .contactBox{
@@ -57,6 +60,11 @@ h2, h3{
 
 .contactBox p{
     margin: 0px 10px 0px 0px;
+}
+#name{
+    margin: 0px;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 #nameHeader{
@@ -67,7 +75,6 @@ h2, h3{
 #positionHeader{
     margin: 0px;
     font-size: 1.5em;
-
 }
 
 .contactLabel{
@@ -86,6 +93,10 @@ h2, h3{
     display: none;
     margin: 5px;
   }
+
+.generalInfo{
+    width: 100%;
+}
   
 .education:hover .deleteButton,
 .education:hover .editButton,

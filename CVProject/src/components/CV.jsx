@@ -40,15 +40,14 @@ function CV({
             </div>
           </div>
           <div>
-            <h2>Education</h2>
+            <h2 className='contactHeader'>Education</h2>
             {educationalExperience && educationalExperience.length > 0 ? (
             educationalExperience.map((education, index) => (
               <div className="education" key={index}>
                 
                 <h3>{education.degree}</h3>
-                <p>{education.school}</p>
+                <p>School/University: <br/>{education.school}</p>
                 <p>{education.startDate} - {education.endDate}</p>
-                <p>{education.description}</p>
                 <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
                 <button className="editButton" onClick={() => onEditEducation(index)}>Edit</button>
               </div>
@@ -61,21 +60,24 @@ function CV({
         <div className='cvRight'>
           <div className='generalInfo'>
             <div className='generalInfo'>
-              <h1 id="nameHeader">{generalInfo.name}</h1>
+              <h2 id="name" >{generalInfo.name}</h2>
+              <p id="positionHeader"><i>{generalInfo.position}</i></p>
               <button className="editButton">Edit</button>
             </div>
             <p id='aboutSection'>{generalInfo.about}</p>
-            <p id="positionHeader">{generalInfo.position}</p>
-
           </div>
 
-          <h2>Practical Experience</h2>
+          <h2 className='experienceHeader'>Experience</h2>
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
               <div className="practice" key={index}>
-                <h3>{practice.jobTitle}</h3>
-                <p>{practice.company}</p>
                 <p>{practice.startDate} - {practice.endDate}</p>
+                <p>
+                  {practice.company} | 
+                  {" "}{practice.companyStreet}{" "}{practice.companyHouseNumber}{", "}
+                  {practice.companyZipCode}{" "}{practice.companyTown}
+                </p>
+                <p>{practice.jobTitle}</p>
                 <p>{practice.description}</p>
                 <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
                 <button className="editButton" onClick={() => onEditPractice(index)}>Edit</button>

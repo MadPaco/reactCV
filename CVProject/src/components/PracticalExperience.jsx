@@ -35,6 +35,14 @@ function PracticalExperience( { onPracticalSubmit, editItem, handleEditPractice}
             <input onChange={handleInput} value={data.jobTitle} id="jobTitle" placeholder="Job Title"></input>
             <label htmlFor="company">Company:</label>
             <input onChange={handleInput} value={data.company} id="company" placeholder="Company"></input>
+            <label htmlFor="companyStreet">Company Street:</label>
+            <input onChange={handleInput} value={data.companyStreet} id="companyStreet" placeholder="ExampleStreet"></input>
+            <label htmlFor="companyHouseNumber">Company House Number:</label>
+            <input onChange={handleInput} value={data.companyHouseNumber} id="companyHouseNumber" placeholder="ExampleHouseNumber"></input>
+            <label htmlFor="companyZipCode">Company Zip Code:</label>
+            <input onChange={handleInput} value={data.companyZipCode} id="companyZipCode" placeholder="ExampleZipCode"></input>
+            <label htmlFor="companyTown">Company Town:</label>
+            <input onChange={handleInput} value={data.companyTown} id="companyTown" placeholder="ExampleTown"></input>
             <label htmlFor="startDate">Start Date:</label>
             <input onChange={handleInput} value={data.startDate} id="startDate" placeholder="Start Date"></input>
             <label htmlFor="endDate">End Date:</label>
