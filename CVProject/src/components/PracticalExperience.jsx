@@ -1,17 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import initialPracticalInfo from "./initialPracticalInfo";
 
-function PracticalExperience( { onPracticalSubmit }){
+function PracticalExperience( { onPracticalSubmit, editItem, handleEditPractice}){
 
     const [data, setData] = useState(initialPracticalInfo);
+
+    useEffect(() => {
+        if (editItem) {
+            setData(editItem);
+        } else {
+            setData(initialPracticalInfo);
+        }
+    }, [editItem]);
 
     const handleInput = (event) =>{
         const { id, value} = event.target
         setData(previousData => ({...previousData, [id]: value }))
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (editItem) {
+            handleEditPractice(data, editItem.index);
+        } else {
+            onPracticalSubmit(data);
+        }
+        setData(initialPracticalInfo);
+    }
+
     return(
-        <form>
+        <form onSubmit={handleSubmit}> 
             <h1>Practical Experience</h1>
             <label htmlFor="jobTitle">Job Title:</label>
             <input onChange={handleInput} value={data.jobTitle} id="jobTitle" placeholder="Job Title"></input>
@@ -23,11 +41,7 @@ function PracticalExperience( { onPracticalSubmit }){
             <input onChange={handleInput} value={data.endDate} id="endDate" placeholder="End Date"></input>
             <label htmlFor="description">Job Description:</label>
             <input onChange={handleInput} value={data.description} id="description" placeholder="Job Description"></input>
-            <button onClick={(event) =>{
-                event.preventDefault();
-                onPracticalSubmit(data);
-                setData(initialPracticalInfo);
-            }}>Add</button>
+            <button type="submit">{editItem ? 'Edit' : 'Add'}</button>
         </form>
     );
 }

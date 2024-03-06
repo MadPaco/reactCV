@@ -8,6 +8,8 @@ function CV({
   practicalExperience, 
   onDeleteEducation, 
   onDeletePractice,
+  onEditEducation,
+  onEditPractice,
   }){
 
   return (
@@ -48,7 +50,7 @@ function CV({
                 <p>{education.startDate} - {education.endDate}</p>
                 <p>{education.description}</p>
                 <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
-                <button className="editButton">Edit</button>
+                <button className="editButton" onClick={() => onEditEducation(index)}>Edit</button>
               </div>
             ))
           ) : (
@@ -76,7 +78,7 @@ function CV({
                 <p>{practice.startDate} - {practice.endDate}</p>
                 <p>{practice.description}</p>
                 <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
-                <button className="editButton">Edit</button>
+                <button className="editButton" onClick={() => onEditPractice(index)}>Edit</button>
               </div>
             ))
           ) : (

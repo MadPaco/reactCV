@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../styles/InputForm.css';
 import initialGeneralInfo from './initialGeneralInfo';
 
-function GeneralInformation({ onGeneralSubmit }){
+function GeneralInformation({ onGeneralSubmit, onGeneralEdit }){
 
 
     const [data, setData] = useState(initialGeneralInfo);
