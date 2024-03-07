@@ -144,3 +144,37 @@ p, h5{
 .education{
     margin-top: 15px;
 }
+
+.timeline {
+position: absolute;
+top: 0;
+left: -10px;
+width: 1px;
+height: 100%;
+margin-top: 35px;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+top: 0;
+left: -5px;
+width: 10px;
+height: 10px;
+background: black;
+border-radius: 50%;
+}
+
+.timeline::after {
+content: '';
+position: absolute;
+top: 10px;
+left: -0.5px;
+width: 1px;
+height: calc(100% - 10px);
+background: black;
+}
+
+.practiceContainer{
+    position: relative;
+}

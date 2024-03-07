@@ -3,18 +3,18 @@ import '../styles/CV.css';
 import Expertise from './Expertise';
 
 // Component
-function CV({ 
-  generalInfo, 
-  educationalExperience, 
-  practicalExperience, 
-  onDeleteEducation, 
+function CV({
+  generalInfo,
+  educationalExperience,
+  practicalExperience,
+  onDeleteEducation,
   onDeletePractice,
   onEditEducation,
   onEditPractice,
   expertise,
   onEditExpertise,
   onDeleteExpertise,
-  }){
+}) {
 
   return (
     <div>
@@ -22,7 +22,7 @@ function CV({
         <div className='cvLeft'>
           <div className='generalInfo'>
             <div className='profilePicture'>
-              <img src={generalInfo.profilePicture} alt='ProfilePicture'/>
+              <img src={generalInfo.profilePicture} alt='ProfilePicture' />
             </div>
             <div className="contactHeader">
               <h2>Contact</h2>
@@ -45,19 +45,19 @@ function CV({
           <div className='sidebarItem'>
             <h2 className='contactHeader'>Education</h2>
             {educationalExperience && educationalExperience.length > 0 ? (
-            educationalExperience.map((education, index) => (
-              <div className="education" key={index}>
-                <p>{education.startDate} - {education.endDate}</p>
-                <h5>{education.degree}</h5>
-                <p>{education.school}</p>
-                
-                <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
-                <button className="editButton" onClick={() => onEditEducation(index)}>Edit</button>
-              </div>
-            ))
-          ) : (
-            <p>No educational experience added yet.</p>
-          )}
+              educationalExperience.map((education, index) => (
+                <div className="education" key={index}>
+                  <p>{education.startDate} - {education.endDate}</p>
+                  <h5>{education.degree}</h5>
+                  <p>{education.school}</p>
+
+                  <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
+                  <button className="editButton" onClick={() => onEditEducation(index)}>Edit</button>
+                </div>
+              ))
+            ) : (
+              <p>No educational experience added yet.</p>
+            )}
           </div>
           <div className='sidebarItem'>
             <h2 className="contactHeader">Expertise</h2>
@@ -89,17 +89,22 @@ function CV({
           <h2 className='experienceHeader'>Experience</h2>
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
-              <div className="practice" key={index}>
-                <div className='dates'>{practice.startDate} - {practice.endDate}</div>
-                <div className='companyAddress'>
-                  {practice.company} | 
-                  {" "}{practice.companyStreet}{" "}{practice.companyHouseNumber}{", "}
-                  {practice.companyZipCode}{" "}{practice.companyTown}
+              <div className='practiceContainer'>
+                <div className='timeline'>
+
                 </div>
-                <p className='jobTitle'>{practice.jobTitle}</p>
-                <p>{practice.description}</p>
-                <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
-                <button className="editButton" onClick={() => onEditPractice(index)}>Edit</button>
+                <div className="practice" key={index}>
+                  <div className='dates'>{practice.startDate} - {practice.endDate}</div>
+                  <div className='companyAddress'>
+                    {practice.company} |
+                    {" "}{practice.companyStreet}{" "}{practice.companyHouseNumber}{", "}
+                    {practice.companyZipCode}{" "}{practice.companyTown}
+                  </div>
+                  <p className='jobTitle'>{practice.jobTitle}</p>
+                  <p>{practice.description}</p>
+                  <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
+                  <button className="editButton" onClick={() => onEditPractice(index)}>Edit</button>
+                </div>
               </div>
             ))
           ) : (
