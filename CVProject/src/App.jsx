@@ -20,6 +20,8 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import initialEducationalInfo from './components/initialEducationalInfo';
+import initialPracticalInfo from './components/initialPracticalInfo';
 
 
 function App() {
@@ -94,11 +96,17 @@ function App() {
     ])
   };
 
+  const resetData = () =>{
+    setGeneralInfo(initialGeneralInfo);
+    setEducationInfo(initialEducationalInfo);
+    setPracticalInfo(initialPracticalInfo);
+  }
+
   return (
     <>
       <AppBar color='secondary' position='sticky'>
         <Toolbar variant='dense'>
-          <Button variant='contained' style={{ marginRight: '10px' }}>Reset CV</Button>
+          <Button variant='contained' onClick={() => resetData()} style={{ marginRight: '10px' }}>Reset CV</Button>
           <Button variant='contained' onClick={() => loadExampleData()}>Load example data</Button>
         </Toolbar>
       </AppBar>
