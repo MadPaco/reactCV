@@ -42,7 +42,7 @@ function CV({
               <button className="editButton">Edit</button>
             </div>
           </div>
-          <div>
+          <div className='sidebarItem'>
             <h2 className='contactHeader'>Education</h2>
             {educationalExperience && educationalExperience.length > 0 ? (
             educationalExperience.map((education, index) => (
@@ -59,20 +59,21 @@ function CV({
             <p>No educational experience added yet.</p>
           )}
           </div>
-          <div>
+          <div className='sidebarItem'>
             <h2 className="contactHeader">Expertise</h2>
-            {expertise && expertise.length > 0 ? (
-              expertise.map((expertise, index) => (
-                <div className='expertise'>
-                  <div>{expertise.expertise}</div>
-                  <button className='deleteButton' onClick={() => onDeleteExpertise(index)}>X</button>
-                  <button className='editButton' onClick={() => onEditExpertise(index)}>Edit</button>
-                </div>
-
-              ))
-            ) : (
-              <p>No expertise set</p>
-            )}
+            <ul>
+              {expertise && expertise.length > 0 ? (
+                expertise.map((expertise, index) => (
+                  <li key={index} className='expertise'>
+                    {expertise.expertise}
+                    <button className='deleteButton' onClick={() => onDeleteExpertise(index)}>X</button>
+                    <button className='editButton' onClick={() => onEditExpertise(index)}>Edit</button>
+                  </li>
+                ))
+              ) : (
+                <li>No expertise set</li>
+              )}
+            </ul>
           </div>
         </div>
         <div className='cvRight'>

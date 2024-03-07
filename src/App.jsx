@@ -24,6 +24,7 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import initialExpertise from './components/initialExpertise';
 
 
 function App() {
@@ -130,6 +131,7 @@ function App() {
     setGeneralInfo(initialGeneralInfo);
     setEducationInfo(initialEducationalInfo);
     setPracticalInfo(initialPracticalInfo);
+    setExpertiseInfo(initialExpertise);
   }
 
   return (
