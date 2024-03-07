@@ -1,11 +1,16 @@
+html, body, #root {
+  width: 100vw;
+}
+
 .appContainer{
     display: flex;
     height: 100vh;
-    padding: 5px;
+    padding: 30px;
 }
 
 .leftHalf{
   flex: 1;
+  margin-right: 10px;
 }
 
 .rightHalf{

@@ -30,7 +30,6 @@ function PracticalExperience( { onPracticalSubmit, editItem, handleEditPractice}
 
     return(
         <form onSubmit={handleSubmit}> 
-            <h1>Practical Experience</h1>
             <label htmlFor="jobTitle">Job Title:</label>
             <input onChange={handleInput} value={data.jobTitle} id="jobTitle" placeholder="Job Title"></input>
             <label htmlFor="company">Company:</label>

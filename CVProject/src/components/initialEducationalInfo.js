@@ -3,7 +3,6 @@ const initialEducationalInfo = {
     school: '',
     startDate: '',
     endDate: '',
-    description: '',
 };
 
 export default initialEducationalInfo;

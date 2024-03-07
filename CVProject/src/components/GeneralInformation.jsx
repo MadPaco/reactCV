@@ -24,7 +24,6 @@ function GeneralInformation({ onGeneralSubmit, onGeneralEdit }){
     //add name, email, phone number, town, zipcode, street, housenumber, date of birth
     return (
         <form>
-            <h1>General Information</h1>
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} value={data.name} id="name"></input>
             <label htmlFor="profilePicture">Picture</label>

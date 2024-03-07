@@ -30,7 +30,6 @@ function EducationalExperience({ onEducationSubmit, editItem, handleEditEducatio
     
     return(
         <form onSubmit={handleSubmit}>
-            <h1>Educational Experience</h1>
             <label htmlFor="degree">Degree:</label>
             <input onChange={handleInput} value={data.degree} id="degree" placeholder="Degree"></input>
             <label htmlFor="school">School:</label>

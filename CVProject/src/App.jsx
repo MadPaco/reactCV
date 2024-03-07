@@ -1,15 +1,25 @@
 import { useState } from 'react'
+//styles
+import './styles/App.css'
+//configs
+import initialGeneralInfo from './components/initialGeneralInfo';
+import exampleGeneralInfo from './components/exampleGeneralInfo';
+import examplePracticalInfo from './components/examplePracticalInfo';
+import exampleEducationalInfo from './components/exampleEducationalInfo';
+//internal components
 import GeneralInformation from './components/GeneralInformation'
 import EducationalExperience from './components/EducationalExperience'
 import PracticalExperience from './components/PracticalExperience'
 import CV from './components/CV';
-import './styles/App.css'
-import initialGeneralInfo from './components/initialGeneralInfo';
+//external components
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 
 
 function App() {
@@ -19,7 +29,7 @@ function App() {
   const [practicalInfo, setPracticalInfo] = useState([]);
   const [editItem, setEditItem] = useState(null);
 
-  const handleGeneralInformationSubmit = (input) =>{
+  const handleGeneralInformationSubmit = (input) => {
     setGeneralInfo(input)
   }
 
@@ -28,7 +38,7 @@ function App() {
     setEditItem(item);
   }
 
-  const onEditPractice = (index) =>{
+  const onEditPractice = (index) => {
     const item = { ...practicalInfo[index], index };
     setEditItem(item);
   }
@@ -37,7 +47,7 @@ function App() {
     let newPracticalInfo = [...practicalInfo];
     newPracticalInfo[index] = input;
     setPracticalInfo(newPracticalInfo);
-    setEditItem(null); 
+    setEditItem(null);
   }
 
   const handleEditEducation = (input, index) => {
@@ -47,90 +57,120 @@ function App() {
     setEditItem(null); // clear the editItem
   }
 
-  const handleEducationInformationSubmit = (education) =>{
+  const handleEducationInformationSubmit = (education) => {
     setEducationInfo([...educationInfo, education])
   }
 
-  const handlePracticalInformationSubmit = (practical) =>{
+  const handlePracticalInformationSubmit = (practical) => {
     setPracticalInfo([...practicalInfo, practical])
   }
 
-  const deleteEducation = (index) =>{
+  const deleteEducation = (index) => {
     setEducationInfo(educationInfo.filter((education, i) => i !== index))
   }
 
-  const deletePracice = (index) =>{
+  const deletePracice = (index) => {
     setPracticalInfo(practicalInfo.filter((practice, i) => i !== index))
   }
 
+
+  //Using this to control the accordion, so that panel1 is expanded by default
+  const [expanded, setExpanded] = useState('panel1');
+
+  const handleExpand = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  const loadExampleData = () => {
+    setGeneralInfo(exampleGeneralInfo);
+    setPracticalInfo([
+      examplePracticalInfo[0],
+      examplePracticalInfo[1], 
+      examplePracticalInfo[2]
+    ]);
+    setEducationInfo([
+      exampleEducationalInfo[0],
+      exampleEducationalInfo[1],
+    ])
+  };
+
   return (
-    <div className='appContainer'>
-      <div className='leftHalf'>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>General Information</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <GeneralInformation 
-              onGeneralSubmit={handleGeneralInformationSubmit}
-            />
-          </AccordionDetails>
-        </Accordion>
-  
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>Educational Experience</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <EducationalExperience 
-              onEducationSubmit={handleEducationInformationSubmit} 
-              onEditEducation={onEditEducation}
-              handleEditEducation={handleEditEducation}
-              editItem={editItem}
-            />
-          </AccordionDetails>
-        </Accordion>
-  
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Practical Experience</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <PracticalExperience 
-              onPracticalSubmit={handlePracticalInformationSubmit}
-              onEditPractice={onEditPractice}
-              handleEditPractice={handleEditPractice}
-              editItem={editItem}
-            />
-          </AccordionDetails>
-        </Accordion>
+    <>
+      <AppBar color='secondary' position='sticky'>
+        <Toolbar variant='dense'>
+          <Button variant='contained' style={{ marginRight: '10px' }}>Reset CV</Button>
+          <Button variant='contained' onClick={() => loadExampleData()}>Load example data</Button>
+        </Toolbar>
+      </AppBar>
+      <div className='appContainer'>
+        <div className='leftHalf'>
+          <Accordion expanded={expanded === 'panel1'} onChange={handleExpand('panel1')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>General Information</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <GeneralInformation
+                onGeneralSubmit={handleGeneralInformationSubmit}
+              />
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion expanded={expanded === 'panel2'} onChange={handleExpand('panel2')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography>Educational Experience</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <EducationalExperience
+                onEducationSubmit={handleEducationInformationSubmit}
+                onEditEducation={onEditEducation}
+                handleEditEducation={handleEditEducation}
+                editItem={editItem}
+              />
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion expanded={expanded === 'panel3'} onChange={handleExpand('panel3')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3a-content"
+              id="panel3a-header"
+            >
+              <Typography>Practical Experience</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <PracticalExperience
+                onPracticalSubmit={handlePracticalInformationSubmit}
+                onEditPractice={onEditPractice}
+                handleEditPractice={handleEditPractice}
+                editItem={editItem}
+              />
+            </AccordionDetails>
+          </Accordion>
+        </div>
+        <div className='rightHalf'>
+          <CV
+            generalInfo={generalInfo}
+            educationalExperience={educationInfo}
+            practicalExperience={practicalInfo}
+            onDeleteEducation={deleteEducation}
+            onDeletePractice={deletePracice}
+            handleEditEducation={handleEditEducation}
+            onEditEducation={onEditEducation}
+            handleEditPractice={handleEditPractice}
+            onEditPractice={onEditPractice}
+          />
+        </div>
       </div>
-      <div className='rightHalf'>
-        <CV 
-          generalInfo={generalInfo} 
-          educationalExperience={educationInfo} 
-          practicalExperience={practicalInfo}
-          onDeleteEducation={deleteEducation}
-          onDeletePractice={deletePracice}
-          handleEditEducation={handleEditEducation}
-          onEditEducation={onEditEducation}
-          handleEditPractice={handleEditPractice}
-          onEditPractice={onEditPractice}
-        />
-      </div>
-    </div>
+    </>
+
   )
 }
 
