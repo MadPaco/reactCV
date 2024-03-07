@@ -44,16 +44,19 @@ function App() {
   const onEditEducation = (index) => {
     const item = { ...educationInfo[index], index };
     setEditItem(item);
+    setExpanded('panel2');
   }
 
   const onEditPractice = (index) => {
     const item = { ...practicalInfo[index], index };
     setEditItem(item);
+    setExpanded('panel3');
   }
 
   const onEditExpertise = (index) => {
     const item = { ...expertiseInfo[index], index };
     setEditItem(item);
+    setExpanded('panel4');
   }
 
   const handleEditPractice = (input, index) => {
@@ -155,6 +158,7 @@ function App() {
             <AccordionDetails>
               <GeneralInformation
                 onGeneralSubmit={handleGeneralInformationSubmit}
+                generalInfo={generalInfo}
               />
             </AccordionDetails>
           </Accordion>
@@ -194,7 +198,7 @@ function App() {
               />
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel4'} onChange={handleExpand('panel4')}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel3a-content"

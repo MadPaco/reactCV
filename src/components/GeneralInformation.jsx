@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import '../styles/InputForm.css';
 import initialGeneralInfo from './initialGeneralInfo';
 
-function GeneralInformation({ onGeneralSubmit, onGeneralEdit }){
-
+function GeneralInformation({ onGeneralSubmit, generalInfo }){
 
     const [data, setData] = useState(initialGeneralInfo);
+
+    useEffect(() => {
+        setData(generalInfo);
+    }, [generalInfo]);
 
     const handleInput = (event) =>{
         const { id, value} = event.target
@@ -21,9 +24,13 @@ function GeneralInformation({ onGeneralSubmit, onGeneralEdit }){
         }
     }
 
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        onGeneralSubmit(data);
+    }
     //add name, email, phone number, town, zipcode, street, housenumber, date of birth
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input onChange={handleInput} value={data.name} id="name"></input>
             <label htmlFor="profilePicture">Picture</label>
@@ -44,10 +51,7 @@ function GeneralInformation({ onGeneralSubmit, onGeneralEdit }){
             <input onChange={handleInput} value={data.street} id="street"></input>
             <label htmlFor="houseNumber">House Number:</label>
             <input onChange={handleInput} value={data.houseNumber} id="houseNumber"></input>
-            <button onClick={(event) => {
-                event.preventDefault();
-                onGeneralSubmit(data);
-            }}>Submit</button>
+            <button type="submit">Submit</button>
         </form>
     )
 }
