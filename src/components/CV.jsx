@@ -47,10 +47,10 @@ function CV({
             {educationalExperience && educationalExperience.length > 0 ? (
             educationalExperience.map((education, index) => (
               <div className="education" key={index}>
-                
-                <h3>{education.degree}</h3>
-                <p>School/University: <br/>{education.school}</p>
                 <p>{education.startDate} - {education.endDate}</p>
+                <h5>{education.degree}</h5>
+                <p>{education.school}</p>
+                
                 <button className="deleteButton" onClick={() => onDeleteEducation(index)}>X</button>
                 <button className="editButton" onClick={() => onEditEducation(index)}>Edit</button>
               </div>
@@ -91,12 +91,12 @@ function CV({
             practicalExperience.map((practice, index) => (
               <div className="practice" key={index}>
                 <div className='dates'>{practice.startDate} - {practice.endDate}</div>
-                <div>
+                <div className='companyAddress'>
                   {practice.company} | 
                   {" "}{practice.companyStreet}{" "}{practice.companyHouseNumber}{", "}
                   {practice.companyZipCode}{" "}{practice.companyTown}
                 </div>
-                <p>{practice.jobTitle}</p>
+                <p className='jobTitle'>{practice.jobTitle}</p>
                 <p>{practice.description}</p>
                 <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
                 <button className="editButton" onClick={() => onEditPractice(index)}>Edit</button>

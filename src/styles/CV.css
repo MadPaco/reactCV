@@ -24,7 +24,7 @@ h2, h3{
 
 .cvLeft{
     display: flex;
-    background-color: #2b2f6d;
+    background-color: rgb(50, 59, 76);
     color: white;
     flex-direction: column;
     align-items: flex-start;
@@ -110,6 +110,11 @@ display: inline;
 
 .dates{
     font-weight: bold;
+    color:lightslategrey
+}
+
+.companyAddress{
+    color: lightslategray
 }
 
 .practice{
@@ -126,4 +131,16 @@ ul{
 
 li{
     margin-top: 10px;
+}
+
+.jobTitle{
+    font-weight: bold;
+}
+
+p, h5{
+    margin: 0px;
+}
+
+.education{
+    margin-top: 15px;
 }
