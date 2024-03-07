@@ -1,5 +1,6 @@
 // Imports
 import '../styles/CV.css';
+import Expertise from './Expertise';
 
 // Component
 function CV({ 
@@ -10,6 +11,9 @@ function CV({
   onDeletePractice,
   onEditEducation,
   onEditPractice,
+  expertise,
+  onEditExpertise,
+  onDeleteExpertise,
   }){
 
   return (
@@ -33,9 +37,8 @@ function CV({
             </div>
             <div className="contactBox">
               <p className="contactLabel">Address</p>
-              <p className="contactValue">{generalInfo.zipCode}</p>
-              <p className="contactValue">{generalInfo.town}</p>
-              <p className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</p>
+              <div className="contactValue">{generalInfo.street} {generalInfo.houseNumber}</div>
+              <div className="contactValue">{generalInfo.zipCode} {" "}{generalInfo.town}</div>
               <button className="editButton">Edit</button>
             </div>
           </div>
@@ -56,6 +59,21 @@ function CV({
             <p>No educational experience added yet.</p>
           )}
           </div>
+          <div>
+            <h2 className="contactHeader">Expertise</h2>
+            {expertise && expertise.length > 0 ? (
+              expertise.map((expertise, index) => (
+                <div className='expertise'>
+                  <div>{expertise.expertise}</div>
+                  <button className='deleteButton' onClick={() => onDeleteExpertise(index)}>X</button>
+                  <button className='editButton' onClick={() => onEditExpertise(index)}>Edit</button>
+                </div>
+
+              ))
+            ) : (
+              <p>No expertise set</p>
+            )}
+          </div>
         </div>
         <div className='cvRight'>
           <div className='generalInfo'>
@@ -71,12 +89,12 @@ function CV({
           {practicalExperience && practicalExperience.length > 0 ? (
             practicalExperience.map((practice, index) => (
               <div className="practice" key={index}>
-                <p>{practice.startDate} - {practice.endDate}</p>
-                <p>
+                <div className='dates'>{practice.startDate} - {practice.endDate}</div>
+                <div>
                   {practice.company} | 
                   {" "}{practice.companyStreet}{" "}{practice.companyHouseNumber}{", "}
                   {practice.companyZipCode}{" "}{practice.companyTown}
-                </p>
+                </div>
                 <p>{practice.jobTitle}</p>
                 <p>{practice.description}</p>
                 <button className="deleteButton" onClick={() => onDeletePractice(index)}>X</button>
