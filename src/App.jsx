@@ -28,6 +28,8 @@ import Button from '@mui/material/Button';
 
 function App() {
 
+  {document.title = 'ReactCVGenerator'}
+
   const [generalInfo, setGeneralInfo] = useState(initialGeneralInfo);
   const [educationInfo, setEducationInfo] = useState([]);
   const [practicalInfo, setPracticalInfo] = useState([]);
